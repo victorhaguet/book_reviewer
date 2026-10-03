@@ -25,8 +25,7 @@ book/
 ├── book.md            (empty file)
 ├── story.md           (empty file)
 ├── open-questions.md  (empty file)
-├── changelog.md       (empty file)
-└── style_author.md    (empty file)
+└── changelog.md       (empty file)
 ```
 
 ## Process
