@@ -22,25 +22,64 @@ The author is the only source of ideas. You collect and record; you never invent
 1. Check that `book/characters/` exists in the current directory. If not, tell the author to run `init-book` first and stop.
 2. Tell the author, in one short message, that they can answer "I don't know" to any question and that you will not suggest anything.
 3. Let the author describe the character in their own words, then start the interview. Do not ask again anything they already said.
-4. Ask the questions below in order, one at a time.
+4. Ask the questions below in order, one at a time, one per field.
 5. Derive the file name, check for conflicts, write the file, and log it in the changelog (see Output).
 6. Send the final message (see Final message).
 
 ## Questions
 
+One question per field, in this order. Never group several fields in one question. The only exception is name and family name, which are asked together.
+
 ### 1. Characteristics
 
-Identity: name and family name, age, activity, role in the book, social origins, love situation.
+Identity:
 
-Expression: facial expressions, language expression (how they speak), habits, obsessions, what triggers them.
+1. Name and family name.
+2. Age.
+3. Activity.
+4. Role in the book.
+5. Social origins.
+6. World where the character lives. List the sheets in `book/worlds/` and ask which one. If there are none, ask the question as free text.
+7. Love situation.
 
-Physical: color of the eyes, size, clothes, physical distinction, voice, gait.
+Expression:
+
+8. Facial expressions.
+9. Language expression (how they speak).
+10. Habits.
+11. Obsessions.
+12. Triggers (what triggers them).
+
+Physical:
+
+13. Color of the eyes.
+14. Size.
+15. Clothes.
+16. Physical distinction.
+17. Voice.
+18. Gait.
 
 ### 2. Backstory and personality
 
-Backstory: past, traumas, successes, failures, flaws, hopes, deceptions, evolution.
+Backstory:
 
-Personality: behavior in public, what they believe in, qualities, defaults (faults), special character aspects, what makes them different from the others.
+19. Past.
+20. Traumas.
+21. Successes.
+22. Failures.
+23. Flaws.
+24. Hopes.
+25. Deceptions.
+26. Evolution.
+
+Personality:
+
+27. Behavior in public.
+28. Beliefs (what they believe in).
+29. Qualities.
+30. Defaults (faults).
+31. Special character aspects.
+32. What makes them different from the others.
 
 ### 3. Relations
 
@@ -66,6 +105,7 @@ Write `book/characters/<slug>.md`.
 - **Activity:**
 - **Role in the book:**
 - **Social origins:**
+- **World:**
 - **Love situation:**
 - **Facial expressions:**
 - **Language expression:**
@@ -112,6 +152,7 @@ Write `book/characters/<slug>.md`.
 - **Other characters:**
 ```
 
+- **World:** when the world has a sheet, link it: `[Name](../worlds/<slug>.md)`. Otherwise write the plain name as given.
 - Under Relations, when a related character has a sheet, link it: `[Name](<slug>.md)`. Otherwise write the plain name.
 - The loop answers go under **Other characters**, one line per character.
 - Do not show the sheet to the author and do not ask for confirmation before saving.
@@ -123,6 +164,7 @@ Keep it short:
 
 - The path of the created file.
 - Named characters who have no sheet yet. Offer to create them later; do not create them.
+- A named world that has no sheet yet. Offer `create-world`; do not create it.
 - Whether the changelog line was added.
 - Existing sheets that need a reciprocal relation update. Point to `update-bible` for that.
 
