@@ -9,7 +9,7 @@ Create the `book/` template in the current working directory. Create folders and
 
 ## Rules
 
-- Ask the author nothing.
+- Ask the author nothing yourself. The interview that follows is the job of `write-book-card`.
 - Do not use git: no `git init`, no `git add`, no commit.
 - Never overwrite, empty, or modify anything that already exists.
 - Create no other file or folder than the ones listed below. In particular, no `.gitkeep`, no README, no template files.
@@ -32,7 +32,8 @@ book/
 
 1. List which of the items above already exist under `./book/`.
 2. Create every missing item, `book/` itself included.
-3. Report, then stop:
+3. Report:
    - If nothing was missing: say the `book/` folder already exists and is complete, and that nothing was changed.
    - If `book/` did not exist: list everything created.
    - If `book/` existed but items were missing: list what was already there and what was added.
+4. If `book/book.md` is empty, invoke the `write-book-card` skill with the Skill tool, right after the report, so that the author starts the book card. If `book/book.md` has content, do nothing more and say nothing about it.
