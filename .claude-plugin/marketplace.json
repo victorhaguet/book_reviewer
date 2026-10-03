@@ -1,0 +1,16 @@
+{
+  "name": "book-reviewer",
+  "owner": {
+    "name": "Victor Haguet"
+  },
+  "plugins": [
+    {
+      "name": "book-reviewer",
+      "source": "./",
+      "description": "Skills for fiction authors: keep a book bible, check chapters for coherence and proofread them, without the AI ever inventing or rewriting your story."
+    }
+  ],
+  "metadata": {
+    "description": "Skills for fiction authors who want a reviewer, not a co-writer."
+  }
+}

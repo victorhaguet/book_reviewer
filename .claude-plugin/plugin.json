@@ -1,0 +1,13 @@
+{
+  "name": "book-reviewer",
+  "version": "0.1.0",
+  "description": "Skills for fiction authors: keep a book bible (characters, places, worlds), check chapters for coherence and proofread them, without the AI ever inventing or rewriting your story.",
+  "author": {
+    "name": "Victor Haguet",
+    "email": "victor.haguet33@gmail.com"
+  },
+  "homepage": "https://github.com/victorhaguet/book_reviewer",
+  "repository": "https://github.com/victorhaguet/book_reviewer",
+  "license": "MIT",
+  "keywords": ["writing", "fiction", "novel", "book", "proofreading", "worldbuilding"]
+}
