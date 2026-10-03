@@ -12,7 +12,8 @@ You compare a chapter with the book's reference material and produce questions. 
 - Only produce questions. Never answer them, never propose a fix, never suggest which side is correct.
 - Word every question neutrally, without accusing the chapter or the sheet.
 - Never edit the chapter or any sheet. The only files you write are `book/open-questions.md` and `book/changelog.md`.
-- Never ask the author anything during the analysis, including to resolve an ambiguous name. Skip what is unclear.
+- The author chooses which sheets are compared with the chapter. Never scan the chapter for other entities and never read sheets the author did not select, apart from the world sheet an entity points to.
+- Never ask the author anything during the analysis. Skip what is unclear.
 - A `TBD` field cannot be contradicted. Never ask a question about it.
 - Style and writing quality are out of scope.
 - Questions are stored in English. If the chapter is in another language, translate the quoted passage faithfully.
@@ -22,25 +23,27 @@ You compare a chapter with the book's reference material and produce questions. 
 1. Find the chapter. The author must name it, and it must be in `book/chapters/`.
    - If the author named none, ask which chapter, and wait.
    - If the file is not in `book/chapters/`, tell the author to put it there and stop.
-2. Check that `book/characters/`, `book/places/` and `book/worlds/` exist. If not, tell the author to run `init-book` first and stop. If there are no sheets at all, say so, point to `create-character`, `create-place` and `create-world`, and stop.
-3. Read the chapter, all the sheets, and `book/story.md` and `book/book.md` when they are non-empty. Read them as free text. The author may also have listed the entities in the scene: treat that list as a hint, not a replacement for the scan.
-4. Locate the entities (see Locating entities).
-5. Analyze each entity, one at a time (see Analysis). Do not draft questions across entities beforehand.
-6. Run the cross-cutting pass (see Cross-cutting pass).
-7. Remove duplicates, save the questions, and log them (see Output).
-8. Send the final message (see Final message).
+2. Find the entities to check. The author must list the characters, places and worlds that appear in the chapter, or the part of it, to review.
+   - If the author listed none, ask which ones, and wait.
+3. Check that `book/characters/`, `book/places/` and `book/worlds/` exist. If not, tell the author to run `init-book` first and stop.
+4. Resolve the list (see Resolving the entities).
+5. Read the chapter, the selected sheets, and `book/story.md` and `book/book.md` when they are non-empty. Read them as free text.
+6. Analyze each entity, one at a time (see Analysis). Do not draft questions across entities beforehand.
+7. Run the cross-cutting pass (see Cross-cutting pass).
+8. Remove duplicates, save the questions, and log them (see Output).
+9. Send the final message (see Final message).
 
-## Locating entities
+## Resolving the entities
 
-Scan the chapter for every character, place and world that has a sheet. Match on:
+Match each name the author listed to a sheet on:
 
 - The full name.
 - The first name or the family name, only if exactly one sheet carries it.
 - A nickname or a title that a sheet itself uses.
 
-Anything else is unclear: skip it. Never guess an alias. Skipped mentions are named in the final message and never become questions.
+A name that matches no sheet, or several, is skipped. Never guess. Do not ask. Skipped names are given in the final message and never become questions. A listed name with no sheet is not an incoherence: note it for the final message.
 
-A named entity in the chapter with no sheet is not an incoherence. Note it for the final message.
+If no listed name matches a sheet, say so, point to `create-character`, `create-place` and `create-world`, and stop.
 
 ## Analysis
 
@@ -60,9 +63,9 @@ If an entity has nothing to ask, note it as checked with no issue.
 
 ## Cross-cutting pass
 
-After the entities, look at what only shows between them and across the book:
+After the entities, look at what only shows between the selected entities and across the book:
 
-- Contradictions between two entities in the chapter (a distance, a date, two accounts of one event).
+- Contradictions between two selected entities in the chapter (a distance, a date, two accounts of one event).
 - Contradictions with `story.md` (events, order, who knows what, current state of the story).
 - Contradictions with `book.md`.
 
@@ -93,7 +96,7 @@ Group these questions under a `Story` heading instead of an entity.
 In this order:
 
 1. The questions, grouped by entity, numbered continuously so the author can answer by number. Each one is self-contained: the passage, the sheet field, and the question. Show the questions you found, including those skipped as duplicates.
-2. Entities in the chapter with no sheet. Offer `create-character`, `create-place` or `create-world`; do not create them.
+2. Listed names with no sheet. Offer `create-character`, `create-place` or `create-world`; do not create them.
 3. Entities checked with no issue, in one line. If there are no questions at all, say that everything looks coherent.
-4. How many questions were saved to `open-questions.md`, how many were skipped as duplicates, whether the changelog line was added, and any mention skipped as unclear.
+4. How many questions were saved to `open-questions.md`, how many were skipped as duplicates, whether the changelog line was added, and any listed name skipped as unclear or ambiguous.
 5. When there are questions, tell the author to answer them and then run `update-bible` to update the sheets and clear the answered entries.
