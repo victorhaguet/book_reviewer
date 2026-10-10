@@ -1,7 +1,14 @@
 import { join } from 'node:path'
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, Menu } from 'electron'
 import { getAppInfo } from '../core/app-info'
+import { loadInterfaceLanguage } from '../core/interface-language'
+import type { InterfaceLanguage } from '../shared/interface-language'
+import { createMenuTemplate } from './app-menu'
 import { registerIpcHandlers } from './ipc-handlers'
+
+function applyInterfaceLanguage(language: InterfaceLanguage): void {
+  Menu.setApplicationMenu(Menu.buildFromTemplate(createMenuTemplate(language, process.platform)))
+}
 
 function createWindow(): void {
   const window = new BrowserWindow({
@@ -26,8 +33,12 @@ function createWindow(): void {
   }
 }
 
-void app.whenReady().then(() => {
-  registerIpcHandlers(ipcMain)
+void app.whenReady().then(async () => {
+  const settingsFilePath = join(app.getPath('userData'), 'settings.json')
+  const getOsLocale = () => app.getSystemLocale()
+
+  registerIpcHandlers(ipcMain, { settingsFilePath, getOsLocale, applyInterfaceLanguage })
+  applyInterfaceLanguage(await loadInterfaceLanguage(settingsFilePath, getOsLocale()))
   createWindow()
 
   app.on('activate', () => {

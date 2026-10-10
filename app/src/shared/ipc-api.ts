@@ -3,12 +3,16 @@
 // add a channel name and a method together, then implement the handler
 // in src/main/ipc-handlers.ts and expose it in src/preload/index.ts.
 
+import type { InterfaceLanguage } from './interface-language'
+
 export const IPC_CHANNELS = {
   getAppVersion: 'app:get-version',
-  getAppName: 'app:get-name'
+  getInterfaceLanguage: 'settings:get-interface-language',
+  setInterfaceLanguage: 'settings:set-interface-language'
 } as const
 
 export interface BookReviewerApi {
   getAppVersion(): Promise<string>
-  getAppName(): Promise<string>
+  getInterfaceLanguage(): Promise<InterfaceLanguage>
+  setInterfaceLanguage(language: InterfaceLanguage): Promise<void>
 }

@@ -5,7 +5,9 @@ import { IPC_CHANNELS, type BookReviewerApi } from '../shared/ipc-api'
 // one method per entry of the typed contract, nothing else.
 const api: BookReviewerApi = {
   getAppVersion: () => ipcRenderer.invoke(IPC_CHANNELS.getAppVersion),
-  getAppName: () => ipcRenderer.invoke(IPC_CHANNELS.getAppName)
+  getInterfaceLanguage: () => ipcRenderer.invoke(IPC_CHANNELS.getInterfaceLanguage),
+  setInterfaceLanguage: (language) =>
+    ipcRenderer.invoke(IPC_CHANNELS.setInterfaceLanguage, language)
 }
 
 contextBridge.exposeInMainWorld('api', api)

@@ -1,0 +1,43 @@
+{
+  "appName": "Relecteur IA",
+  "startScreen": {
+    "version": "Version {{version}}"
+  },
+  "languageSwitcher": {
+    "label": "Langue de l’interface",
+    "languages": {
+      "en": "English",
+      "fr": "Français"
+    }
+  },
+  "menu": {
+    "about": "À propos de {{appName}}",
+    "hide": "Masquer {{appName}}",
+    "hideOthers": "Masquer les autres",
+    "showAll": "Tout afficher",
+    "quitApp": "Quitter {{appName}}",
+    "file": "Fichier",
+    "closeWindow": "Fermer la fenêtre",
+    "quit": "Quitter",
+    "edit": "Édition",
+    "undo": "Annuler",
+    "redo": "Rétablir",
+    "cut": "Couper",
+    "copy": "Copier",
+    "paste": "Coller",
+    "selectAll": "Tout sélectionner",
+    "view": "Affichage",
+    "reload": "Recharger",
+    "forceReload": "Forcer le rechargement",
+    "toggleDevTools": "Outils de développement",
+    "resetZoom": "Taille réelle",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "toggleFullScreen": "Plein écran",
+    "window": "Fenêtre",
+    "minimize": "Réduire",
+    "zoom": "Zoom",
+    "bringAllToFront": "Tout ramener au premier plan",
+    "close": "Fermer"
+  }
+}
