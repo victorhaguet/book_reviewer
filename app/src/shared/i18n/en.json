@@ -1,0 +1,43 @@
+{
+  "appName": "Book Reviewer",
+  "startScreen": {
+    "version": "Version {{version}}"
+  },
+  "languageSwitcher": {
+    "label": "Interface language",
+    "languages": {
+      "en": "English",
+      "fr": "Français"
+    }
+  },
+  "menu": {
+    "about": "About {{appName}}",
+    "hide": "Hide {{appName}}",
+    "hideOthers": "Hide Others",
+    "showAll": "Show All",
+    "quitApp": "Quit {{appName}}",
+    "file": "File",
+    "closeWindow": "Close Window",
+    "quit": "Quit",
+    "edit": "Edit",
+    "undo": "Undo",
+    "redo": "Redo",
+    "cut": "Cut",
+    "copy": "Copy",
+    "paste": "Paste",
+    "selectAll": "Select All",
+    "view": "View",
+    "reload": "Reload",
+    "forceReload": "Force Reload",
+    "toggleDevTools": "Toggle Developer Tools",
+    "resetZoom": "Actual Size",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "toggleFullScreen": "Toggle Full Screen",
+    "window": "Window",
+    "minimize": "Minimize",
+    "zoom": "Zoom",
+    "bringAllToFront": "Bring All to Front",
+    "close": "Close"
+  }
+}

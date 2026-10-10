@@ -1,5 +1,7 @@
 # Book Reviewer
 
+[![App CI](https://github.com/victorhaguet/book_reviewer/actions/workflows/app.yml/badge.svg)](https://github.com/victorhaguet/book_reviewer/actions/workflows/app.yml)
+
 A [Claude Code](https://claude.com/claude-code) plugin for fiction authors. It helps you keep track of your book (characters, places, worlds, story so far), checks your chapters for coherence with that material, and proofreads them.
 
 ## Philosophy
@@ -65,6 +67,30 @@ Repeat steps 4 to 8 for each new chapter. Every change made by a skill is logged
 | `review-coherence` | Compares a chapter with the sheets, `story.md` and `book.md`, and turns each possible incoherence into a question. | After writing or rewriting a chapter. |
 | `update-bible` | Applies your decisions to the sheets, `story.md` and `book.md`; settles the open questions. | After `review-coherence`, or to change a sheet. |
 | `review-style` | Fixes objective errors with your approval and highlights passages that may need a reformulation. | When a chapter is ready to be proofread. |
+
+## Run the app from source
+
+A desktop version of Book Reviewer is in progress in the [`app/`](app/) folder (Electron, React, TypeScript). It is run from source; there is no installer yet. You need [Node.js](https://nodejs.org/) 22 or later.
+
+```
+cd app
+npm install
+npm run dev
+```
+
+`npm run dev` opens the app window and reloads the interface as you edit it. Other commands, also run from `app/`:
+
+| Command | What it does |
+| --- | --- |
+| `npm test` | Runs all the tests once. |
+| `npm run test:watch` | Re-runs the tests as you edit. |
+| `npm run test:coverage` | Runs the tests with coverage; fails under 90% lines, branches, functions or statements. |
+| `npm run typecheck` | Checks the TypeScript types of all three layers. |
+| `npm run lint` | Runs ESLint; any warning fails. |
+| `npm run format` | Formats the code with Prettier (`npm run format:check` only checks). |
+| `npm run build` | Builds the app into `app/out/`. |
+
+The code is split into three layers: `src/core` (plain TypeScript, no Electron or React), `src/main` (the Electron main process, which delegates to core) and `src/renderer` (the React interface, which talks to the main process only through the typed API in `src/shared/ipc-api.ts`).
 
 ## License
 
