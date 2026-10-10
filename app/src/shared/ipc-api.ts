@@ -9,6 +9,6 @@ export const IPC_CHANNELS = {
 } as const
 
 export interface BookReviewerApi {
-  getAppVersion(): Promise<string>,
+  getAppVersion(): Promise<string>
   getAppName(): Promise<string>
 }

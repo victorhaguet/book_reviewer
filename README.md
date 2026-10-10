@@ -1,5 +1,7 @@
 # Book Reviewer
 
+[![App CI](https://github.com/victorhaguet/book_reviewer/actions/workflows/app.yml/badge.svg)](https://github.com/victorhaguet/book_reviewer/actions/workflows/app.yml)
+
 A [Claude Code](https://claude.com/claude-code) plugin for fiction authors. It helps you keep track of your book (characters, places, worlds, story so far), checks your chapters for coherence with that material, and proofreads them.
 
 ## Philosophy
@@ -82,7 +84,10 @@ npm run dev
 | --- | --- |
 | `npm test` | Runs all the tests once. |
 | `npm run test:watch` | Re-runs the tests as you edit. |
-| `npm run typecheck` | Checks the TypeScript types. |
+| `npm run test:coverage` | Runs the tests with coverage; fails under 90% lines, branches, functions or statements. |
+| `npm run typecheck` | Checks the TypeScript types of all three layers. |
+| `npm run lint` | Runs ESLint; any warning fails. |
+| `npm run format` | Formats the code with Prettier (`npm run format:check` only checks). |
 | `npm run build` | Builds the app into `app/out/`. |
 
 The code is split into three layers: `src/core` (plain TypeScript, no Electron or React), `src/main` (the Electron main process, which delegates to core) and `src/renderer` (the React interface, which talks to the main process only through the typed API in `src/shared/ipc-api.ts`).

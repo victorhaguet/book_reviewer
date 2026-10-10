@@ -1,7 +1,7 @@
 /*
-* TypeScript configuration for the code that runs in the browser window:
-* the React renderer and shared.
-*/
+ * TypeScript configuration for the code that runs in the browser window:
+ * the React renderer and shared.
+ */
 
 {
   "compilerOptions": {

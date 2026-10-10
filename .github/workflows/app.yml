@@ -1,0 +1,48 @@
+# Quality gates for the desktop app in app/.
+# Runs only when the app (or this workflow) changes, so editing the
+# plugin skills does not trigger it.
+
+name: App CI
+
+on:
+  push:
+    paths:
+      - 'app/**'
+      - '.github/workflows/app.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - '.github/workflows/app.yml'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install
+        run: npm ci
+        env:
+          # No test starts Electron, so its binary is not needed.
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Tests with coverage
+        run: npm run test:coverage
